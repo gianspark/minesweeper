@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct7j0fanh3tkg"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_6unav"]
+[ext_resource type="Texture2D" uid="uid://dd5xsiukad7fj" path="res://icon.svg" id="1_ew5vk"]
+[ext_resource type="Script" path="res://update.gd" id="2_448jv"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6unav")
+
+[node name="BuscaminasUpdate" type="Node" parent="."]
+script = ExtResource("2_448jv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ResetButton" type="TextureButton" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_ew5vk")
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[connection signal="button_down" from="VBoxContainer/CenterContainer/ResetButton" to="." method="RESET_BUTTON"]

@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct7j0fanh3tkg"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_6unav"]
+[ext_resource type="Texture2D" uid="uid://dd5xsiukad7fj" path="res://icon.svg" id="1_ew5vk"]
+[ext_resource type="Script" path="res://update.gd" id="2_448jv"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6unav")
+
+[node name="BuscaminasUpdate" type="Node" parent="."]
+script = ExtResource("2_448jv")
+grid_size_x = 30
+grid_size_y = 15
+mines = 60
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+color = Color(0.376471, 0.921569, 0.921569, 0.662745)
+
+[node name="ResetButton" type="TextureButton" parent="VBoxContainer/CenterContainer"]
+self_modulate = Color(0, 0, 0, 0)
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+texture_normal = ExtResource("1_ew5vk")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/ResetButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "RESET"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[connection signal="button_down" from="VBoxContainer/CenterContainer/ResetButton" to="." method="RESET_BUTTON"]

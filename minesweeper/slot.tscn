@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl2rcsloftjht"]
+
+[ext_resource type="Script" path="res://slot.gd" id="1_s58uq"]
+[ext_resource type="Texture2D" uid="uid://gt4kgvprpxue" path="res://bomb.png" id="2_7llyr"]
+
+[node name="slot" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_s58uq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="Number" type="Label" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.866667, 0, 1)
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bomb" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_7llyr")
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 2
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
