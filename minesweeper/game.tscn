@@ -15,9 +15,9 @@ script = ExtResource("1_6unav")
 
 [node name="BuscaminasUpdate" type="Node" parent="."]
 script = ExtResource("2_448jv")
-grid_size_x = 30
-grid_size_y = 15
-mines = 60
+grid_size_x = 20
+grid_size_y = 14
+mines = 40
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

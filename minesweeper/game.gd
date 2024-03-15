@@ -110,23 +110,12 @@ func check_around(slot,boolean):
 		
 		if(!waiting_list.has(aux) and slot_verify_state[1] == 0):
 			waiting_list.append(aux)
+	if(!boolean):
+		return
 	for s in waiting_list:
-		
 		var slot_verify_state = mines[s.pos]
-		
-		if(slot_verify_state[1] == 0):
-			verify_slot(s,false)
-		else:
-			waiting_list.erase(s)
-	if(boolean):
-		for s in waiting_list:
-			var slot_verify_state = mines[s.pos]
-			
-			if(slot_verify_state[1] == 0):
-				verify_slot(s,false)
-				waiting_list.erase(s)
-			else:
-				waiting_list.erase(s)
+		verify_slot(s,false)
+	waiting_list.clear()
 
 func RESET_BUTTON():
 	create_new_game()
